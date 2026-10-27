@@ -167,14 +167,62 @@
             section { padding: 70px 20px; }
         }
 
-        /* ── Дополнительный декор: лёгкий полупрозрачный зигзаг в разделе «О студии» ── */
+        /* ===== Новые стили: фоновые изображения и иллюстрация раздела «Направления» ===== */
+
+        /* Фон блока .about-image: «Фото зала и атмосферы студии.jpg» со лёгким затемнением,
+           чтобы наложение оставалось аккуратным. Размер, рамка и скругление не меняются. */
+        .about-image {
+            background-image: linear-gradient(rgba(47, 62, 47, 0.30), rgba(47, 62, 47, 0.20)), url('images/Фото зала и атмосферы студии.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+
+        /* Фон всего раздела «О студии»: «Практикующие люди.jpg» на весь раздел,
+           пропорции сохранены, приглушён светлым градиентом, который плавно
+           переходит в фон сайта у верхнего и нижнего краёв раздела. */
+        #about {
+            background-color: #F0EDE6;
+            background-image: linear-gradient(to bottom, #F0EDE6 0%, rgba(240, 237, 230, 0.55) 25%, rgba(240, 237, 230, 0.55) 75%, #F0EDE6 100%), url('images/Практикующие люди.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Иллюстрация между заголовком и карточками в разделе «Направления»:
+           по центру, не шире 2/3 ширины карточек, высота до 260 px,
+           обрезка без искажения пропорций, рамка и скругление как у карточек. */
+        .classes-cover {
+            display: block;
+            width: 100%;
+            max-width: 66.67%;
+            height: 260px;
+            margin: 0 auto 45px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 18px;
+            border: 1px solid #E5E0D6;
+            box-shadow: 0 8px 25px rgba(47, 62, 47, 0.07);
+        }
+
+        /* На мобильных иллюстрация может занимать всю ширину, высота остаётся небольшой */
+        @media (max-width: 768px) {
+            .classes-cover {
+                max-width: 100%;
+                height: 200px;
+                margin-bottom: 35px;
+            }
+        }
+
+        /* ── Дополнительный декор: лёгкий полупрозрачный зигзаг на фоне раздела «Направления» ── */
         /* Существующие стили не изменялись — этот блок лишь добавляет фон-узор */
-        .about {
+        #classes {
             background-image:
-                linear-gradient(135deg, rgba(122, 155, 118, 0.10) 25%, transparent 25%),
-                linear-gradient(225deg, rgba(122, 155, 118, 0.10) 25%, transparent 25%),
-                linear-gradient(315deg, rgba(122, 155, 118, 0.10) 25%, transparent 25%),
-                linear-gradient(45deg, rgba(122, 155, 118, 0.10) 25%, transparent 25%);
+                linear-gradient(135deg, rgba(94, 138, 90, 0.07) 25%, transparent 25%),
+                linear-gradient(225deg, rgba(94, 138, 90, 0.07) 25%, transparent 25%),
+                linear-gradient(315deg, rgba(94, 138, 90, 0.07) 25%, transparent 25%),
+                linear-gradient(45deg, rgba(94, 138, 90, 0.07) 25%, transparent 25%);
             background-position: -22px 0, -22px 0, 0 0, 0 0;
             background-size: 44px 44px;
         }
@@ -216,7 +264,7 @@
                     <p>Здесь занимаются люди разного возраста и уровня подготовки. Наши преподаватели помогают мягко войти в практику и сохранить интерес к ней надолго.</p>
                     <p>В студии светлые залы, качественные коврики, приятная музыка и атмосфера, в которой хочется возвращаться снова и снова.</p>
                 </div>
-                <div class="about-image">🌿🧘</div>
+                <div class="about-image" role="img" aria-label="Фото зала и атмосферы студии «Гармония»"></div>
             </div>
         </div>
     </section>
@@ -225,6 +273,7 @@
         <div class="container">
             <h2 class="section-title">Направления</h2>
             <p class="section-subtitle">Выберите практику, которая подходит именно вам</p>
+            <img class="classes-cover" src="images/Детали и текстуры йоги.jpg" alt="Детали и текстуры йоги: коврики и атмосфера практики в студии «Гармония»">
             <div class="classes-grid">
                 <div class="class-card">
                     <div class="emoji">🌅</div>

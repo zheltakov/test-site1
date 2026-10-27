@@ -166,6 +166,18 @@
             .membership-content { padding: 30px 22px; }
             section { padding: 70px 20px; }
         }
+
+        /* ── Дополнительный декор: лёгкий полупрозрачный зигзаг в разделе «О студии» ── */
+        /* Существующие стили не изменялись — этот блок лишь добавляет фон-узор */
+        .about {
+            background-image:
+                linear-gradient(135deg, rgba(122, 155, 118, 0.10) 25%, transparent 25%),
+                linear-gradient(225deg, rgba(122, 155, 118, 0.10) 25%, transparent 25%),
+                linear-gradient(315deg, rgba(122, 155, 118, 0.10) 25%, transparent 25%),
+                linear-gradient(45deg, rgba(122, 155, 118, 0.10) 25%, transparent 25%);
+            background-position: -22px 0, -22px 0, 0 0, 0 0;
+            background-size: 44px 44px;
+        }
     </style>
 </head>
 <body>
